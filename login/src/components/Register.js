@@ -4,6 +4,8 @@ import { Button, FormControl, Heading, useToast } from "@chakra-ui/react";
 import { useRef } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
+
 
 export default function Register() {
   const emailRef = useRef();
@@ -37,8 +39,10 @@ export default function Register() {
         toast({
           status: "error",
           title: "An error occured",
+          description: `${err.response.data.message[0].messages[0].message}`,
+          
         });
-        console.log(err.response);
+    
       });
 
 
@@ -84,7 +88,9 @@ export default function Register() {
           Lesss Goo
         </Button>
         <Button as="a" href="/" variant="link" colorScheme="whiteAlpha">
+          <Link ></Link>
           Test your luck.
+         
         </Button>
       </Flex>
     </Flex>

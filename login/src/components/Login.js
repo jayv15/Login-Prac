@@ -5,6 +5,7 @@ import { useRef } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+
 export default function Login() {
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -25,6 +26,7 @@ export default function Login() {
           toast({
             status: "success",
             title: "Successfully logged in",
+            
           });
           setTimeout(() => (window.location = "/yo"), 1200);
           return;
@@ -35,8 +37,10 @@ export default function Login() {
         toast({
           status: "error",
           title: "An error occured",
+          description: `${err.response.data.message[0].messages[0].message}`,
+         
         });
-        console.log(err.response);
+        
       });
   };
 
