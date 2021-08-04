@@ -1,6 +1,6 @@
 import { Flex } from "@chakra-ui/layout";
 import { Input } from "@chakra-ui/input";
-import { Button, FormControl, Heading, useToast } from "@chakra-ui/react";
+import { Button, FormControl, Heading, useToast,Text } from "@chakra-ui/react";
 import { useRef } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -32,6 +32,7 @@ export default function Register() {
             title: "Successfully Registerd",
           });
           return;
+         
         }
         console.log(data);
       })
@@ -42,7 +43,7 @@ export default function Register() {
           description: `${err.response.data.message[0].messages[0].message}`,
           
         });
-    
+        
       });
 
 
@@ -53,10 +54,12 @@ export default function Register() {
       height="100vh"
       alignItems="center"
       justifyContent="center"
-      background="#121221"
+      bgGradient="linear(to-r, green.200, pink.500)"
+     
     >
-      <Flex direction="column" background="teal" p={12} rounded={5}>
-        <Heading mb={6}>Register Your A$$</Heading>
+      <Flex direction="column" background="green.400" p={12} rounded={1000} bgGradient="linear(to-r, green.200, pink.500)" border="GrayText">
+        <Heading mb={6} ><Text 
+  >Register Your A$$</Text></Heading>
         <FormControl>
           <Input
             placeholder="Email Id"
@@ -84,7 +87,7 @@ export default function Register() {
             mb={3}
           />
         </FormControl>
-        <Button onClick={Register} colorScheme="blackAlpha" mb={3}>
+        <Button onClick={Register} colorScheme="blackAlpha" mb={3} ml="90" width={120}>
           Lesss Goo
         </Button>
         <Button as="a" href="/" variant="link" colorScheme="whiteAlpha">

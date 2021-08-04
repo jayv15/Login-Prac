@@ -10,7 +10,7 @@ export const MakeGet = (url) => {
                 }
             })
             .then(({ data }) => {
-                debugger;
+         
                 resolve(data);
             })
             .catch((err) => {

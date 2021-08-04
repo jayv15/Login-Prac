@@ -28,10 +28,11 @@ export default function Login() {
             title: "Successfully logged in",
             
           });
-          setTimeout(() => (window.location = "/yo"), 1200);
+          console.log(data.jwt);
+          setTimeout(() => (window.location = "/main  "), 1200);
           return;
         }
-        console.log(data);
+        console.log(data.jwt);
       })
       .catch((err) => {
         toast({
@@ -40,7 +41,7 @@ export default function Login() {
           description: `${err.response.data.message[0].messages[0].message}`,
          
         });
-        
+        console.log(err.response);
       });
   };
 
@@ -49,9 +50,10 @@ export default function Login() {
       height="100vh"
       alignItems="center"
       justifyContent="center"
-      background="#121221"
+      bgGradient="linear(to-r, green.200, pink.500)"
     >
-      <Flex direction="column" background="teal" p={12} rounded={5}>
+      
+      <Flex direction="column"  p={12} h="50%" rounded={1000} bgGradient="linear(to-r, green.200, pink.500)">
         <Heading mb={6}>Login If You Can</Heading>
         <FormControl>
           <Input
@@ -71,7 +73,7 @@ export default function Login() {
             mb={3}
           />
         </FormControl>
-        <Button onClick={Login} colorScheme="blackAlpha" mb={3}>
+        <Button onClick={Login} colorScheme="blackAlpha" mb={3} ml="82" width={120}>
           Test your luck
         </Button>
         <Button as="a" href="/register" variant="link" colorScheme="whiteAlpha">
